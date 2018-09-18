@@ -1,0 +1,22 @@
+---
+# Include Operating System CentOS
+  - include_tasks: centos.yml
+    when: ansible_distribution == 'CentOS'
+
+# Mongodb comes with it's own repository
+  # - name: "Ensure mongod.conf file is present"
+  #   template:
+  #     src: mongod.conf.j2
+  #     dest: /etc/mongod.conf
+  #     owner: root
+  #     group: root
+  #     mode: 0644
+  #     notify:
+  #       - Restart MongoDB
+
+  - name: "Ensure MongoDB is running, and starts on boot"
+    service:
+      name: mongod
+      state: started
+      enabled: yes
+    

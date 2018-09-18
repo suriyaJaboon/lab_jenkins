@@ -1,0 +1,16 @@
+---
+ # Mongodb comes with it's own repository
+ - name: "Make sure that MongoDB repository is available"
+   template:
+    src: mongodb-org.repo.j2
+    dest: /etc/yum.repos.d/mongodb-org-4.0.repo
+    owner: root
+    group: root
+    mode: 0644
+
+ # Install MongoDB Packages
+ - name: "Install MongoDB Packages"
+   yum: 
+    name: "mongodb-org"
+    # name: "mongodb-org-{{ mongodb_version }}"
+    state: latest

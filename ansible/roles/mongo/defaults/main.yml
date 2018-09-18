@@ -1,0 +1,8 @@
+---
+mongodb_version: "4.0"
+mongodb_pid: "/var/run/mongodb/mongod.pid"
+mongodb_data_path: "/var/lib/mongodb"
+mongodb_oplog_size: 1024
+mongodb_smallfiles: false
+mongodb_nojournal: false
+mongodb_is_arbiter: false

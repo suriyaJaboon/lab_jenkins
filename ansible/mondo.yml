@@ -1,0 +1,9 @@
+---
+ # Install MongoDB CentOS
+ - name: Install MongoDB
+   hosts: mongo
+   become: yes
+   remote_user: "{{ remote_user }}"
+ 
+   roles:
+    - mongo
