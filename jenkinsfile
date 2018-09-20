@@ -1,12 +1,42 @@
+#!groovy
 pipeline {
-    agent any
-    stages {
-        stage('Example') {
-            steps {
-                echo 'Hello World'
-                echo 'Example Jenkins'
-                echo 'Example Jenkins0'
-            }
-        }
+  stages {
+    stage('Build') {
+      node {
+        checkout scm
+      }
     }
-}
+
+    stage('Static Code Analysis') {
+      node() {
+        sh "echo 'Run Static Code Analysis'"
+      }
+    }
+
+    stage('Unit Tests') {
+      node() {
+        sh "echo 'Run Tests'"
+      }
+    }
+
+    stage('Acceptance Tests') {
+      node() {
+        sh "echo 'Run Acceptance Tests'"
+      }
+    }
+  }
+// pipeline {
+//     agent any
+//     stages {
+//         stage('scm') {
+//             checkout([$class: 'GitSCM', 
+//                 branches: [[name: '*/master'], 
+//                 [name: '*/develop']], 
+//                 doGenerateSubmoduleConfigurations: false, 
+//                 extensions: [], 
+//                 submoduleCfg: [], 
+//                 userRemoteConfigs: [[url: 'https://github.com/suriyaJaboon/lab_jenkins.git']]]
+//             )
+//         }
+//     }
+// }
