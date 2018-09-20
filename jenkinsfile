@@ -5,6 +5,7 @@ pipeline {
             steps {
                 echo 'Hello World'
                 echo 'Example Jenkins'
+                echo 'Example Jenkins0'
             }
         }
     }
